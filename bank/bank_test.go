@@ -19,9 +19,13 @@ var _ = Describe("Bank", func() {
 
 	Describe("Deposit", func() {
 		It("should return an error if amount is less than or equal to zero", func() {
-			err := account.Deposit(0)
-			Expect(err).ShouldNot(BeNil())
-			Expect(err.Error()).To(Equal("the amount cannot be less than equal zero"))
+			amounts := []float64{0, -1}
+
+			for _, amount := range amounts {
+				err := account.Deposit(amount)
+				Expect(err).ShouldNot(BeNil())
+				Expect(err.Error()).To(Equal("the amount cannot be less than equal zero"))
+			}
 		})
 
 		It("should return the appropriate amount of account balance after deposit", func() {
@@ -33,9 +37,13 @@ var _ = Describe("Bank", func() {
 
 	Describe("WithDraw", func() {
 		It("should return an error if amount is less than or equal to zero", func() {
-			err := account.Withdraw(0)
-			Expect(err).ShouldNot(BeNil())
-			Expect(err.Error()).To(Equal("the amount cannot be less than equal zero"))
+			amounts := []float64{0, -1}
+
+			for _, amount := range amounts {
+				err := account.Deposit(amount)
+				Expect(err).ShouldNot(BeNil())
+				Expect(err.Error()).To(Equal("the amount cannot be less than equal zero"))
+			}
 		})
 
 		It("should return an error if amount is greater than balance", func() {
