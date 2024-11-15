@@ -29,3 +29,7 @@ func (a *Account) Withdraw(amount float64) error {
 
 	return nil
 }
+
+func (a *Account) GetBalance() float64 {
+	return a.Balance
+}
