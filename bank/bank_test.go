@@ -50,4 +50,11 @@ var _ = Describe("Bank", func() {
 			Expect(account.Balance).To(Equal(80.0))
 		})
 	})
+
+	Describe("GetBalance", func() {
+		It("should return the account balance", func() {
+			account.GetBalance()
+			Expect(account.GetBalance()).To(Equal(account.Balance))
+		})
+	})
 })
